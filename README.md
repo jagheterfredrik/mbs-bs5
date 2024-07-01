@@ -1,4 +1,4 @@
-# mbs-bs5
+# MBS-BS5
 Research notes into the MBS-BS5 BMS module found in Biltema bikes, firmware 19.0322.11.
 
 My e-bike battery stopped working and so I decided to understand why. The top-most LED indicator (4) is blinking, indicating "malfunction".
