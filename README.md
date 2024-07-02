@@ -14,8 +14,8 @@ SWD is broken out to soldered headers, one per MCU. The one closest to the LED i
 | 4 | PA13 (SWDIO) |
 | 5 | BOOT0 |
 | 6 | ? |
-| 7 | VDDIO2 |
-| 8 | PA9 (UART1_TX) |
+| 7 | PA9 (UART1_TX) |
+| 8 | PA10 (UART1_RX |
 
 ## Main MCU (STM32F091)
 ### Debug UART (UART1)
