@@ -20,7 +20,7 @@ SWD is broken out to soldered headers, one per MCU. The one closest to the LED i
 ## Debug UART
 * Debug UART needs modified firmware
 * SRAM is initialized with some funky magic/compression (at FUN_08004a00) but the patch is 0x0801a23f needs to change from 0x01 to 0x00
-* 38400 baud, 7 data bits, 1 stop bit.
+* UART is running 38400 baud, 7N1
 
 ### Example log
 ```
