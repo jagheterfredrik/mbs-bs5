@@ -17,13 +17,23 @@ SWD is broken out to soldered headers, one per MCU. The one closest to the LED i
 | 7 | VDDIO2 |
 | 8 | PA9 (UART1_TX) |
 
-## Debug UART
+## Main MCU (STM32F091)
+### Debug UART (UART1)
 * Debug UART needs modified firmware
 * SRAM is initialized with some funky magic/compression (at FUN_08004a00) but the patch is 0x0801a23f needs to change from 0x01 to 0x00
 * UART is running 38400 baud, 7N1
 
-### Example log
+#### Example log
 ```
 I/MAIN( 679): Application UP!fw: 19.0322.11 hw: 7
 E/ML5236(  80): Error_State=3
 ```
+
+### UART2
+UART2 is being initialized, purpose unknown. My guess is communication with the second MCU or the charger.
+
+### CAN
+CAN is being initialized, purpose unknown. My guess is communication with the second MCU or the charger.
+
+### SPI
+SPI is setup to read/write from external flash memory. The onboard LAPIS ML5236 also communicates over SPI but unclear if this MCU, the secondary MCU or both is/are connected.
