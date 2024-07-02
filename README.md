@@ -18,6 +18,14 @@ SWD is broken out to soldered headers, one per MCU. The one closest to the LED i
 | 8 | PA10 (UART1_RX |
 
 ## Main MCU (STM32F091)
+### Connections
+| Pin | Function |
+| - | - |
+| PB3 | Green LED4 |
+| PB2 | Green LED3 |
+| PB1 | Green LED2 |
+| PB0 | Green LED1 |
+
 ### Debug UART (UART1)
 * Debug UART needs modified firmware
 * SRAM is initialized with some funky magic/compression (at FUN_08004a00) but the patch is 0x0801a23f needs to change from 0x01 to 0x00
