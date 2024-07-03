@@ -19,12 +19,14 @@ SWD is broken out to soldered headers, one per MCU. The one closest to the LED i
 
 ## Main MCU (STM32F091)
 ### Connections
-| Pin | Function |
+| Pin/peripheral | Function |
 | - | - |
 | PB3 | Green LED4 |
 | PB2 | Green LED3 |
 | PB1 | Green LED2 |
 | PB0 | Green LED1 |
+| PB12 | External flash CS |
+| SPI2 | External flash SPI |
 
 ### Debug UART (UART1)
 * Debug UART needs modified firmware
