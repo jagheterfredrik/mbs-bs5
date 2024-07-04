@@ -40,10 +40,10 @@ E/ML5236(  80): Error_State=3
 ```
 
 ### UART2
-UART2 is being initialized, purpose unknown. My guess is communication with the second MCU or the charger.
+UART2 is being initialized, purpose unknown. My guess is communication with the second MCU.
 
 ### CAN
-CAN is being initialized, purpose unknown. My guess is communication with the second MCU or the charger.
+CAN is being initialized, purpose unknown. My guess is communication with the charger.
 
 ### SPI
 SPI is setup to read/write from external flash memory. The onboard LAPIS ML5236 also communicates over SPI but unclear if this MCU, the secondary MCU or both is/are connected.
