@@ -1,7 +1,7 @@
 # MBS-BS5
 Research notes into the MBS-BS5 BMS module made by [MPS](https://www.acermps.com) found in some Biltema e-bike batteries, firmware 19.0322.11.
 
-My battery stopped working and so I decided to understand why. The top-most LED indicator (4) is blinking, indicating "malfunction".
+My battery stopped working and so I decided to understand why. The top-most LED indicator (4) is blinking, indicating "malfunction". The reason behind the malfunction code is a blown fuse. The reason for the fuse being blown is in question, however as [the fuse](https://www.eaton.com/content/dam/eaton/products/electronic-components/resources/data-sheet/eaton-scf9550-self-control-fuse-data-sheet-elx1135-en.pdf) is software-controlled.
 
 ## SWD
 SWD is broken out to soldered headers, one per MCU. The one closest to the LED indicators seem to run the show. Neither MCU is read protected.
@@ -47,3 +47,6 @@ CAN is being initialized to communicate with the charger.
 
 ### SPI
 SPI is setup to read/write from external flash memory. The onboard LAPIS ML5236 also communicates over SPI but unclear if this MCU, the secondary MCU or both is/are connected.
+
+### Firmware
+At 0x0801d800 there's a string containing serial numbers, hardware id and manufacturing date. Interestingly the manufacturing date is parsed from this string, parsed into a unix timestamp and stored in RAM. The reason to parse it from the string is probably to have static firmware file that's customized at the production line. The reason for parsing it at all is however kinda sus.
