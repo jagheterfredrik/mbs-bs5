@@ -8,9 +8,9 @@ SWD is broken out to soldered headers, one per MCU. The one closest to the LED i
 
 | Pin  | Function |
 | - | - |
-| 1 | VDD |
+| 1 | VDD (3.3V) |
 | 2 | PA14 (SWCLK) |
-| 3 | VSS |
+| 3 | VSS (GND) |
 | 4 | PA13 (SWDIO) |
 | 5 | nRST |
 | 6 | ? |
