@@ -12,7 +12,7 @@ SWD is broken out to soldered headers, one per MCU. The one closest to the LED i
 | 2 | PA14 (SWCLK) |
 | 3 | VSS |
 | 4 | PA13 (SWDIO) |
-| 5 | BOOT0 |
+| 5 | nRST |
 | 6 | ? |
 | 7 | PA9 (UART1_TX) |
 | 8 | PA10 (UART1_RX |
