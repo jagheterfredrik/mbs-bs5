@@ -1,5 +1,5 @@
 # MBS-BS5
-Research notes into the MBS-BS5 BMS module made by [MPS](https://www.acermps.com) found in some Biltema e-bike batteries, firmware 19.0322.11.
+Research notes into the MBS-BS5 BMS module made by [MPS](https://www.acermps.com) found in some Biltema e-bike batteries, main MCU firmware 19.0322.11. After blowing up my initial module (v2.2), I got spares from a local ebike repair shop (shout out [Batteridoktorn](https://batteridoktorn.se/)), the new modules are v2.1 and v2.0. The main MCU firmware on the diagnosed 2.1 is 18.1029.91.
 
 My battery stopped working and so I decided to understand why. The top-most LED indicator (4) is blinking, indicating "malfunction". The reason behind the malfunction code is a blown fuse. The reason for the fuse being blown is in question, however as [the fuse](https://www.eaton.com/content/dam/eaton/products/electronic-components/resources/data-sheet/eaton-scf9550-self-control-fuse-data-sheet-elx1135-en.pdf) is software-controlled.
 
@@ -50,3 +50,15 @@ SPI is setup to read/write from external flash memory. The onboard LAPIS ML5236 
 
 ### Firmware
 At 0x0801d800 there's a string containing serial numbers, hardware id and manufacturing date. Interestingly the manufacturing date is parsed from this string, parsed into a unix timestamp and stored in RAM. The reason to parse it from the string is probably to have static firmware file that's customized at the production line. The reason for parsing it at all is however kinda sus.
+
+## Secondary MCU (STM32F071)
+Communicates with Main MCU over 9600 baud USART2 using the AMPS protocol.
+
+## AMPS Protocol
+A proprietary TLV-style protocol encoded as
+
+```
+"AMPS" [uint32_t length] [uint16_t cmd] [data] [crc16]
+```
+Length is packet length excluding CRC. Both length and cmd is little endian.
+The CRC excludes the static AMPS packet header.
