@@ -54,6 +54,8 @@ At 0x0801d800 there's a string containing serial numbers, hardware id and manufa
 ## Secondary MCU (STM32F071)
 Communicates with Main MCU over 9600 baud USART2 using the AMPS protocol.
 
+Has a much smaller firmware that the main MCU.
+
 ## AMPS Protocol
 A proprietary TLV-style protocol encoded as
 
@@ -62,3 +64,23 @@ A proprietary TLV-style protocol encoded as
 ```
 Length is packet length excluding CRC. Both length and cmd is little endian.
 The CRC excludes the static AMPS packet header.
+
+### Commands
+#### From Main MCU
+ - 0x05
+ - 0x07
+ - 0x09
+ - 0x0F - MCU date/time response
+ - 0x17 - 0x72 bytes, includes firmware version
+ - 0x19
+ - 0x1A - No data, len 0
+ - 0x1D
+ - 0x20
+ - 0x22
+ - 0x101
+ - 0x103
+ - 0x104
+ - 0x106
+
+#### From Secondary MCU
+ - 0x21
