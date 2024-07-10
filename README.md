@@ -83,4 +83,4 @@ The CRC excludes the static AMPS packet header.
  - 0x106
 
 #### From Secondary MCU
- - 0x21
+ - 0x21 - No data, len 0, heartbeat?
