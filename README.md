@@ -84,3 +84,6 @@ The CRC excludes the static AMPS packet header.
 
 #### From Secondary MCU
  - 0x21 - No data, len 0, heartbeat?
+
+## App
+The main MCU has support for Bluetooth, connected to USART3. To utilize it, there's [an app](https://play.google.com/store/apps/details?id=mps.mps_bike), which probably talks the AMPS protocol. The app references things that indicate upgrade functionality, e.g. link to [firmware bins]([url](https://mpspackfw.firebaseapp.com/)).
