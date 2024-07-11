@@ -69,9 +69,16 @@ The CRC excludes the static AMPS packet header.
 #### From Main MCU
  - 0x05
  - 0x07
+   - data[0] - int32 workstate
+   - data[4] - int8 temperature 1 (0.1 degrees resolution)
+   - data[6] - int8 State of Charge
+   - data[7] - int8 State of Health
  - 0x09
+   - data[0] - float voltage (in mV)
+   - data[4] - float current (in mA)
  - 0x0F - MCU date/time response
  - 0x17 - 0x72 bytes, includes firmware version
+   - data[106] - char[10] firmware version
  - 0x19
  - 0x1A - No data, len 0
  - 0x1D
