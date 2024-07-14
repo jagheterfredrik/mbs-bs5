@@ -67,6 +67,12 @@ The CRC excludes the static AMPS packet header.
 
 ### Commands
 #### From Main MCU
+ - 0x03 - Command response
+   - data[0] - uint16_t code:
+     - 0x00 - ACK?
+     - 0x01 - error crc check fail
+     - 0x02 - error unknown cmd
+     - 0x11 - error buffer overrun?
  - 0x05
  - 0x07
    - data[0] - int32 workstate
