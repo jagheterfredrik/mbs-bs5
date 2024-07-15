@@ -39,11 +39,25 @@ I/MAIN( 679): Application UP!fw: 19.0322.11 hw: 7
 E/ML5236(  80): Error_State=3
 ```
 
+### Config parameters
+At 0x0801D000 there's a struct of configuration parameters written during final assembly. The full list of things can be reversed from the mBike app. I'll list some of them:
+
+- 0x00 - uint32_t n_cells
+- 0x04 - uint32_t pack_version
+- 0x08 - uint32_t max_capacity
+- 0x0c - uint32_t full_cell_voltage
+- 0x36 - uint8_t ble_enabled
+- 0x100 uint32_t battery_id
+- 0x108 - uint16_t crc16 of the parameters
+
 ### UART2
-UART2 is being initialized, purpose unknown. My guess is communication with the second MCU.
+UART2 is being initialized, used to communication with the second MCU.
+
+### UART3
+UART3 is initialized if ble_enabled is set in the configuration parameters.
 
 ### CAN
-CAN is being initialized to communicate with the charger.
+CAN is being initialized, used to communicate with the charger.
 
 ### SPI
 SPI is setup to read/write from external flash memory. The onboard LAPIS ML5236 also communicates over SPI but unclear if this MCU, the secondary MCU or both is/are connected.
